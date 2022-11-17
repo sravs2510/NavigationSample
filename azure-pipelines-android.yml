@@ -23,18 +23,4 @@ steps:
     gradleOptions: '-Xmx3072m'
     sonarQubeRunAnalysis: false
 
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk'
-    apksignerKeystoreFile: 'my-upload-key.keystore'
-    apksignerKeystorePassword: '$(KeyStorePassword)'
-    apksignerKeystoreAlias: '$(KeyAlias)'
-    apksignerKeyPassword: '$(KeyPassword)'
-    zipalign: false
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    # PathtoPublish: 'android/app/build/outputs/apk/release'
-    PathtoPublish: 'android/app/build/outputs/'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
