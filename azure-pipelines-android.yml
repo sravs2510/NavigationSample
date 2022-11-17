@@ -13,13 +13,10 @@ name: $(date:yyyy).$(Month)$(rev:.r)
 
 steps:
 
-- script: yarn install
-
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'android/gradlew'
     workingDirectory: 'android/'
-    options: '-PversionName=$(Build.BuildNumber) -PversionCode=$(Build.BuildId)'
     tasks: 'assembleRelease'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
